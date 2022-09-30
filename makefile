@@ -5,6 +5,9 @@ ccflags = -target x86_64-pc-win32-coff -fno-stack-protector -I efi -fshort-wchar
 lflags = -subsystem:efi_application -nodefaultlib -dll
 
 all:
+	clear
+	clear
+	
 	$(cc) $(ccflags) src/init.c -o bin/init.o
 
 	$(ld) $(lflags) -entry:EFI_MAIN bin/*.o -out:BOOTX64.EFI
@@ -12,7 +15,6 @@ all:
 
 
 testimg:all
-	
 	dd if=/dev/zero of=VIZ.img bs=512 count=20480
 	mformat -i VIZ.img -f 1440 ::
 	mmd -i VIZ.img /EFI

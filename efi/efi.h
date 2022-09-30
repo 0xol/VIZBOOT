@@ -112,9 +112,12 @@ typedef void *EFI_HANDLE;
 
 typedef void *EFI_EVENT;
 
+#include "efiDpp.h"
 #include "efiStip.h"
 #include "efiStop.h"
 #include "efiRs.h"
+#include "efiBs.h"
+#include "efiCt.h"
 
 typedef struct EFI_SYSTEM_TABLE {
     EFI_TABLE_HEADER                  TableHeader;
