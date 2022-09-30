@@ -1,7 +1,7 @@
 cc = clang
 ld = lld-link
 
-ccflags = -target x86_64-pc-win32-coff -fno-stack-protector -I efi -fshort-wchar -mno-red-zone -c
+ccflags = -target x86_64-pc-win32-coff -fno-stack-protector -I efi -I src/include -fshort-wchar -mno-red-zone -c
 lflags = -subsystem:efi_application -nodefaultlib -dll
 
 all:
@@ -9,6 +9,7 @@ all:
 	clear
 	
 	$(cc) $(ccflags) src/init.c -o bin/init.o
+	$(cc) $(ccflags) src/graphic.c -o bin/graphic.o
 
 	$(ld) $(lflags) -entry:EFI_MAIN bin/*.o -out:BOOTX64.EFI
 	rm BOOTX64.lib

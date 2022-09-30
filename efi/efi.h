@@ -118,6 +118,7 @@ typedef void *EFI_EVENT;
 #include "efiRs.h"
 #include "efiBs.h"
 #include "efiCt.h"
+#include "gop.h"
 
 typedef struct EFI_SYSTEM_TABLE {
     EFI_TABLE_HEADER                  TableHeader;
