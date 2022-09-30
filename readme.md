@@ -6,7 +6,7 @@ x86_64 UEFI only (may expand to other UEFI capable 64 bit architectures)
 
 ## Milestones
 
-- [ ] Make a valid efi application
+- [x] Make a valid efi application
 - [ ] Setup printing
 - [ ] Keyboard input
 - [ ] Read from ESP partition
