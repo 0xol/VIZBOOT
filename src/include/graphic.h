@@ -4,6 +4,8 @@
 #include <efi.h>
 
 void print(CHAR16 *str);
-CHAR16* itoa(int64_t val, int base);
+CHAR16* itoa(uint64_t val, int base);
+void printHex(uint64_t Val);
+void printUint(uint64_t Val);
 
 #endif

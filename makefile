@@ -1,6 +1,5 @@
 cc = clang
 ld = lld-link
-
 ccflags = -target x86_64-pc-win32-coff -fno-stack-protector -I efi -I src/include -fshort-wchar -mno-red-zone -c
 lflags = -subsystem:efi_application -nodefaultlib -dll
 
@@ -10,6 +9,7 @@ all:
 	
 	$(cc) $(ccflags) src/init.c -o bin/init.o
 	$(cc) $(ccflags) src/graphic.c -o bin/graphic.o
+	
 
 	$(ld) $(lflags) -entry:EFI_MAIN bin/*.o -out:BOOTX64.EFI
 	rm BOOTX64.lib
@@ -24,4 +24,4 @@ testimg:all
 
 
 qemu:
-	qemu-system-x86_64 -bios bios64.bin -drive format=raw,unit=0,file=VIZ.img
+	qemu-system-x86_64 -bios bios64.bin -drive format=raw,unit=0,file=VIZ.img -m 256m
